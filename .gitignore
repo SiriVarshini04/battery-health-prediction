@@ -1,0 +1,15 @@
+# Python artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+*.pytest_cache/
+.coverage
+
+# Large raw dataset files
+battery-health-ml/data/raw/*.zip
+battery-health-ml/data/raw/*.part*
+battery-health-ml/data/raw/5. Battery Data Set/
+
+# Keep processed CSV & models
+!battery-health-ml/data/processed/
+!battery-health-ml/models/

@@ -1,0 +1,41 @@
+{
+  "dataset_name": "NASA Ames Prognostics Center of Excellence (PCoE) Li-ion Battery Aging Dataset",
+  "reference_batteries": [
+    "B0005",
+    "B0006",
+    "B0007",
+    "B0018"
+  ],
+  "cell_chemistry": "Lithium Cobalt Oxide (LiCoO2) cathode, graphite anode (18650 cylindrical)",
+  "rated_nominal_capacity_Ah": 2.0,
+  "soh_definition": "Capacity-based SOH: (measured_capacity_Ah / rated_capacity_Ah) * 100",
+  "features": {
+    "battery_id": "Identifier of the battery cell under test (B0005, B0006, B0007, B0018)",
+    "cycle_number": "Ordered discharge cycle count starting from cycle 1 to end-of-life",
+    "rated_capacity_ah": "Manufacturer nominal rated capacity in Ampere-hours (2.0 Ah)",
+    "measured_capacity_ah": "Ground-truth usable discharge capacity in Ampere-hours measured during standard CC discharge to cutoff",
+    "soh_percent": "Ground-truth target State of Health as percentage of rated capacity (Target)",
+    "discharge_duration_s": "Total time elapsed in seconds during discharge cycle",
+    "voltage_start": "Initial cell voltage at start of discharge (V)",
+    "voltage_end": "Final cell voltage at end of discharge / cutoff threshold (V)",
+    "voltage_min": "Minimum cell voltage recorded during cycle (V)",
+    "voltage_max": "Maximum cell voltage recorded during cycle (V)",
+    "voltage_mean": "Mean cell voltage across discharge period (V)",
+    "voltage_std": "Standard deviation of cell voltage during discharge (V)",
+    "current_mean": "Mean discharge current magnitude (A)",
+    "current_max": "Peak discharge current magnitude (A)",
+    "temperature_start": "Initial cell surface temperature at start of cycle (\u00b0C)",
+    "temperature_max": "Maximum cell surface temperature recorded during discharge (\u00b0C)",
+    "temperature_mean": "Mean surface temperature across cycle (\u00b0C)",
+    "temperature_rise": "Temperature rise (temperature_max - temperature_start) during discharge (\u00b0C)",
+    "internal_resistance_proxy": "Initial ohmic IR voltage drop delta_V / delta_I (Ohms)"
+  },
+  "esp32_hardware_mapping": {
+    "description": "Hardware adapter mapping live ESP32 sensors (INA219 + DHT11) to cell ML features",
+    "battery_configuration": "2S Li-ion pack (2 cells in series, nominal 7.4V)",
+    "voltage_mapping": "Cell voltage = Pack bus voltage (INA219 V) / 2.0",
+    "current_mapping": "Cell current = Pack load current (INA219 mA) / 1000.0 (in Amperes)",
+    "temperature_mapping": "Ambient / pack casing temperature from DHT11 (\u00b0C)",
+    "note_on_leakage": "Future cycle measurements and target capacity are strictly excluded from inference feature set."
+  }
+}

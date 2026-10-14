@@ -1,0 +1,54 @@
+{
+  "evaluation_strategy": "Held-Out Battery Validation",
+  "train_batteries": [
+    "B0005",
+    "B0006",
+    "B0007"
+  ],
+  "test_battery": "B0018",
+  "n_train_samples": 504,
+  "n_test_samples": 132,
+  "features": [
+    "cycle_number",
+    "discharge_duration_s",
+    "voltage_mean",
+    "voltage_min",
+    "voltage_max",
+    "voltage_std",
+    "current_mean",
+    "temperature_mean",
+    "temperature_max",
+    "temperature_rise",
+    "internal_resistance_proxy"
+  ],
+  "models": {
+    "dummy_mean_baseline": {
+      "mae": 7.034,
+      "rmse": 7.861,
+      "r2": -0.038
+    },
+    "linear_cycle_baseline": {
+      "mae": 5.178,
+      "rmse": 5.519,
+      "r2": 0.488
+    },
+    "random_forest": {
+      "mae": 1.897,
+      "rmse": 2.315,
+      "r2": 0.91
+    }
+  },
+  "feature_importances": {
+    "discharge_duration_s": 0.5331,
+    "cycle_number": 0.2633,
+    "current_mean": 0.1705,
+    "voltage_mean": 0.028,
+    "voltage_min": 0.0013,
+    "temperature_max": 0.0011,
+    "temperature_rise": 0.0009,
+    "voltage_std": 0.0008,
+    "temperature_mean": 0.0007,
+    "voltage_max": 0.0004,
+    "internal_resistance_proxy": 0.0
+  }
+}

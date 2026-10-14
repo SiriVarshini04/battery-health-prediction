@@ -1,0 +1,37 @@
+{
+  "battery_id": "B0005",
+  "cutoff_cycle": 80,
+  "total_cycles": 168,
+  "future_cycles_evaluated": 88,
+  "eol_threshold_soh_percent": 80.0,
+  "actual_eol_cycle": 75,
+  "actual_rul_from_cutoff": 0,
+  "forecast_metrics": {
+    "linear_baseline": {
+      "full_future_mae": 2.963,
+      "full_future_rmse": 3.075,
+      "predicted_eol_cycle": 85,
+      "rul_error_cycles": 10
+    },
+    "polynomial_degradation": {
+      "full_future_mae": 17.42,
+      "full_future_rmse": 21.42,
+      "predicted_eol_cycle": 80,
+      "rul_error_cycles": 5
+    }
+  },
+  "horizon_breakdown": {
+    "horizon_10_cycles": {
+      "linear_mae": 2.888,
+      "poly_mae": 1.582
+    },
+    "horizon_20_cycles": {
+      "linear_mae": 2.64,
+      "poly_mae": 3.145
+    },
+    "horizon_30_cycles": {
+      "linear_mae": 2.805,
+      "poly_mae": 4.554
+    }
+  }
+}
